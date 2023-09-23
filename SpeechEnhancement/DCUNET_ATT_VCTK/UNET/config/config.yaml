@@ -1,0 +1,40 @@
+audio:
+  n_fft: 1024
+  num_freq: 513   # n_fft/2+1
+  sample_rate: 16000
+  hop_length: 256
+  win_length: 1024
+  min_level_db: -100.0
+  ref_level_db: 20.0
+  preemphasis: 0.97
+  power: 0.30
+
+---
+data:
+  target_dir: '~~/VCTK/original_wav/clean_trainset_28spk_wav_16KHz/'
+  mixed_dir: '~~/VCTK/original_wav/noisy_trainset_28spk_wav_16KHz/'
+  train_ctrl_dir: '../ctrl/vctk_train.ctl'
+  test_ctrl_dir: '../ctrl/vctk_valid.ctl'
+  
+---
+form:
+  target:
+    wav: '.wav'
+  mixed:
+    wav: '.wav'
+
+---
+train:
+  batch_size: 16
+  num_workers: 24
+  min_audio_len: 26500
+  max_audio_len: 241800
+  optimizer: 'adam'
+  adam: 0.001
+  summary_interval: 1
+  checkpoint_interval: 1000
+
+---
+log:
+  chkpt_dir: 'chkpt'
+  log_dir: 'logs'

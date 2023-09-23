@@ -1,0 +1,8 @@
+librosa
+mir_eval
+pyyaml
+tensorboardX
+matplotlib
+tensorboard
+pesq
+pystoi
